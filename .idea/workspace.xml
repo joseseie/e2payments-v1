@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa018217-2d5f-43fe-9eb6-70657965d612" name="Default" comment="" />
+    <list default="true" id="aa018217-2d5f-43fe-9eb6-70657965d612" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,22 +16,10 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="143" column="1" lean-forward="true" selection-start-line="143" selection-start-column="1" selection-end-line="143" selection-end-column="1" />
+            <state relative-caret-position="305">
+              <caret line="139" column="25" lean-forward="true" selection-start-line="139" selection-start-column="25" selection-end-line="139" selection-end-column="25" />
               <folding>
                 <element signature="n#!!block;n#handlePostRequest#0" />
-                <element signature="e#777#952#0" />
-                <element signature="e#1032#2029#0" />
-                <element signature="e#945#953#0" />
-                <element signature="e#2831#4047#0" />
-                <element signature="e#4092#5344#0" />
-                <element signature="e#5380#6623#0" />
-                <element signature="e#6678#7944#0" />
-                <element signature="e#7991#8400#0" />
-                <element signature="e#8450#8821#0" />
-                <element signature="e#7087#7228#0" />
-                <element signature="e#8853#9202#0" />
-                <element signature="e#7560#7858#0" />
               </folding>
             </state>
           </provider>
@@ -45,6 +35,18 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>handleMpesaC2bPayment</find>
+      <find>isTokenAvailableOnBrowser</find>
+      <find>console.</find>
+      <find>getPaymentHistoryPaginated</find>
+      <find>client_id</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -72,6 +74,9 @@
     <option name="y" value="26" />
     <option name="width" value="836" />
     <option name="height" value="838" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -124,12 +129,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1605177021324</updated>
-      <workItem from="1605177022700" duration="5764000" />
+      <workItem from="1605177022700" duration="11952000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5764000" />
+    <option name="totallyTimeSpent" value="11952000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="26" width="836" height="838" extended-state="0" />
@@ -139,7 +144,7 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" />
       <window_info id="npm" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" weight="0.1808367" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.055415615" />
@@ -173,22 +178,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="143" column="1" lean-forward="true" selection-start-line="143" selection-start-column="1" selection-end-line="143" selection-end-column="1" />
+        <state relative-caret-position="305">
+          <caret line="139" column="25" lean-forward="true" selection-start-line="139" selection-start-column="25" selection-end-line="139" selection-end-column="25" />
           <folding>
             <element signature="n#!!block;n#handlePostRequest#0" />
-            <element signature="e#777#952#0" />
-            <element signature="e#1032#2029#0" />
-            <element signature="e#945#953#0" />
-            <element signature="e#2831#4047#0" />
-            <element signature="e#4092#5344#0" />
-            <element signature="e#5380#6623#0" />
-            <element signature="e#6678#7944#0" />
-            <element signature="e#7991#8400#0" />
-            <element signature="e#8450#8821#0" />
-            <element signature="e#7087#7228#0" />
-            <element signature="e#8853#9202#0" />
-            <element signature="e#7560#7858#0" />
           </folding>
         </state>
       </provider>

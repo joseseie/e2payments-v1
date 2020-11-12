@@ -8,7 +8,6 @@ let errorLogKey = 'EXP_LOG'
 const TOKEN_NAME = '_____________e2p_'
 const DEFAULT_SERVER_URL = 'https://e2payments.explicador.co.mz'
 
-
 function handlePostRequest (params) {	
     try {
 
@@ -32,13 +31,13 @@ function handlePostRequest (params) {
 // Chamado de forma externa.
 async function handleMpesaC2bPayment (params) {
 
+    params.SERVER_URL = params.SERVER_URL ? params.SERVER_URL : DEFAULT_SERVER_URL
+
     //  $validEndPoint = 'https://e2payments.explicador.co.mz/v1/c2b/mpesa-payment/2';
     params.API_ENDPOINT = `${ params.SERVER_URL }/v1/c2b/mpesa-payment/${ params.walletId }`
 
     if (isTokenAvailableOnBrowser()) {
-
         return makePayment (params)
-
     }
     return autenticateAndGetBearerToken (params)
         .then(successResponse => {
@@ -54,7 +53,11 @@ async function handleMpesaC2bPayment (params) {
 
 function makePayment (params) {
     let payload = {...params}
+
     delete payload.CLIENT_SECRET
+    delete payload.CLIENT_ID
+
+    payload.client_id = params.CLIENT_ID
 
     return handlePostRequest({
         API_ENDPOINT: params.API_ENDPOINT,
@@ -82,6 +85,8 @@ function getMyWallets (params) {
 
     let payload = {...params}
     delete payload.CLIENT_SECRET
+
+    payload.client_id = params.CLIENT_ID
     params.SERVER_URL = params.SERVER_URL ? params.SERVER_URL : DEFAULT_SERVER_URL
 
     return handlePostRequest({
@@ -103,6 +108,7 @@ function getMyWalletDetails (params) {
 
     let payload = {...params}
     let walletId = params.walletId
+    payload.client_id = params.CLIENT_ID
     params.SERVER_URL = params.SERVER_URL ? params.SERVER_URL : DEFAULT_SERVER_URL
 
     delete payload.CLIENT_SECRET
@@ -126,6 +132,7 @@ function getPaymentHistory (params) {
 
     let payload = {...params}
     delete payload.CLIENT_SECRET
+    payload.client_id = params.CLIENT_ID
     params.SERVER_URL = params.SERVER_URL ? params.SERVER_URL : DEFAULT_SERVER_URL
 
     return handlePostRequest({
@@ -148,6 +155,8 @@ function getPaymentHistoryPaginated (params) {
 
     let payload = {...params}
     let perPageQtd = params.perPageQtd
+    payload.client_id = params.CLIENT_ID
+
     params.SERVER_URL = params.SERVER_URL ? params.SERVER_URL : DEFAULT_SERVER_URL
 
     delete payload.CLIENT_SECRET
@@ -170,6 +179,8 @@ function getPaymentHistoryPaginated (params) {
 // Chamado de forma externa.
 function autenticateAndGetBearerToken (params) {
 
+    params.SERVER_URL = params.SERVER_URL ? params.SERVER_URL : DEFAULT_SERVER_URL
+
     return handlePostRequest({
         API_ENDPOINT: params.SERVER_URL + '/oauth/token',
         payload: {
@@ -181,7 +192,6 @@ function autenticateAndGetBearerToken (params) {
     })
     .then(async r => {
         let token = await storeTokenInBrowser (r.data)
-        console.log('Monitorar o token: ', token)
         return token
     })
     .catch(error => {
@@ -191,19 +201,32 @@ function autenticateAndGetBearerToken (params) {
 
 }
 
+function addSomeDaysToToken(totalDays) {
+
+    Date.prototype.addDays = function(days) {
+        var date = new Date(this.valueOf());
+        date.setDate(date.getDate() + days);
+        return date;
+    }
+
+    var date = new Date();
+
+    return date.addDays(totalDays)
+}
+
 // Armazena o token no browser
 function storeTokenInBrowser (responseData) {
 
+    if (!responseData) return null//interrompe a execução
+
     let token = responseData.token_type + ' ' + responseData.access_token
-    let expiration_date = new Date(responseData.expires_in)
+    let expiration_date = addSomeDaysToToken(90)
 
     storeToken({
         name: TOKEN_NAME,
         token: token,
         date: expiration_date,
     })
-
-    console.log('Token armazenado com sucesso no browser com o nome: \''+TOKEN_NAME+'\'')
 
     return token
 
@@ -246,7 +269,6 @@ function deleteToken() {
 module.exports.isTokenAvailableOnBrowser    = isTokenAvailableOnBrowser;
 module.exports.deleteToken                  = deleteToken;
 module.exports.autenticateAndGetBearerToken = autenticateAndGetBearerToken;
-module.exports.isTokenAvailableOnBrowser    = isTokenAvailableOnBrowser;
 module.exports.handleMpesaC2bPayment        = handleMpesaC2bPayment;
 module.exports.getMyWallets                 = getMyWallets;
 module.exports.getMyWalletDetails           = getMyWalletDetails;
