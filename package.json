@@ -1,0 +1,22 @@
+{
+  "name": "e2payments",
+  "version": "1.0.0",
+  "description": "e2Payments ajuda-lhe a integrar pagamentos de forma fácil e segura. Integrar pagamentos e controlar todas as suas transações, com e2Payments ficou fácil.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mpesa",
+    "mastercard",
+    "visa",
+    "payments",
+    "pagamentos",
+    "integração"
+  ],
+  "author": "Explicador Inc",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.0"
+  }
+}
